@@ -1,16 +1,20 @@
 import React from 'react';
 
-class ReadToDo extends React.Component {
+class ControlToDo extends React.Component {
     render() {
         console.log('ReadToDo render')
-        const arrData = this.props.data
+        const arrToDos = this.props.data
         let toDoList = [];
-        arrData.map(item =>
+        arrToDos.map(item =>
             toDoList.push(
-                <li className="toDo" key={item.id}>
+                <li className="toDo" key={item.id} data-id={item.id}>
                     {item.toDo}
-                    <span role="img" aria-label="writing hand" className="toDo_btn">✍</span>
-                    <span role="img" aria-label="cross mark" className="toDo_btn">❌</span>
+                    <span className="update-btn" role="img" aria-label="writing hand" >✍</span>
+                    <span className="del-btn" role="img" aria-label="cross mark"
+                        onClick={function (e) {
+                            this.props.deleteToDo(parseInt(e.target.parentElement.dataset.id));
+                        }.bind(this)}
+                    >❌</span>
                 </li>
             )
         );
@@ -24,4 +28,4 @@ class ReadToDo extends React.Component {
     }
 };
 
-export default ReadToDo;
+export default ControlToDo;

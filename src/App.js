@@ -1,8 +1,8 @@
 import React from 'react';
 import HelloName from './components/HelloName';
 import YourName from './components/YourName';
-import ReadToDo from './components/ReadToDo';
 import WriteToDo from './components/WriteToDo';
+import ControlTodo from './components/ReadToDo';
 
 
 class App extends React.Component {
@@ -16,6 +16,10 @@ class App extends React.Component {
             {
                 id: 2,
                 toDo: 'Complete Update functions'
+            },
+            {
+                id: 3,
+                toDo: 'lalalal'
             }
         ]
     }
@@ -33,11 +37,11 @@ class App extends React.Component {
     }
 
     render() {
+        const toDos = this.state.toDos;
         return (
             <main className="App">
                 {this.isRegistered()}
                 <WriteToDo onSubmit={function (strToDo) {
-                    const toDos = this.state.toDos;
                     const newToDo = {
                         id: toDos.length + 1,
                         toDo: strToDo
@@ -45,7 +49,16 @@ class App extends React.Component {
                     const addNewToDo = toDos.concat(newToDo);
                     this.setState({ toDos: addNewToDo })
                 }.bind(this)}></WriteToDo>
-                <ReadToDo data={this.state.toDos}></ReadToDo>
+                <ControlTodo
+                    data={toDos}
+                    deleteToDo={
+                        function (_id) {
+                            const getToDo = toDos.findIndex(item => item.id === _id);
+                            const tempToDos = Array.from(toDos)
+                            tempToDos.splice(getToDo, 1);
+                            this.setState({ toDos: tempToDos });
+                        }.bind(this)
+                    }></ControlTodo>
             </main>
         )
     }
