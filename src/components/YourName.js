@@ -7,11 +7,11 @@ class YourName extends React.Component {
                 <form action="/" method="post" className="yourName" autoComplete="none"
                     onSubmit={function (e) {
                         e.preventDefault();
-                        this.props.onSubmit(e.target.name.value);
+                        this.props.onSubmit(e.target.name.value)
                     }.bind(this)}>
                     <label>
                         Name!
-              <input type="text" placeholder="Your Name?" name="name" />
+              <input name="name" type="text" placeholder="Your Name?" />
                     </label>
                 </form>
             </header >

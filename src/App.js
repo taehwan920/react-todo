@@ -1,46 +1,9 @@
 import React from 'react';
 import HelloName from './components/HelloName';
 import YourName from './components/YourName';
+import ReadToDo from './components/ReadToDo';
+import WriteToDo from './components/WriteToDo';
 
-
-class WriteToDo extends React.Component {
-    render() {
-        return (
-            <center className="centerForWriting">
-                <form action="" className="WriteToDo">
-                    <label>
-                        What To Do!
-                        <input type="text" placeholder="What are you going to do today?" />
-                    </label>
-                </form>
-            </center>
-        )
-    }
-}
-
-class ReadToDo extends React.Component {
-    render() {
-        console.log('ReadToDo render')
-        const arrData = this.props.data
-        let toDoList = [];
-        arrData.map(item =>
-            toDoList.push(
-                <li className="toDo" data-id={item.id}>
-                    {item.toDo}
-                    <span role="img" aria-label="writing hand" className="toDo_btn">✍</span>
-                    <span role="img" aria-label="cross mark" className="toDo_btn">❌</span>
-                </li>
-            )
-        );
-        return (
-            <article className="toDoList" >
-                <ul>
-                    {toDoList}
-                </ul>
-            </article>
-        )
-    }
-}
 
 class App extends React.Component {
     state = {
@@ -52,7 +15,7 @@ class App extends React.Component {
             },
             {
                 id: 2,
-                toDo: 'Complete Read functions'
+                toDo: 'Complete Update functions'
             }
         ]
     }
@@ -61,29 +24,33 @@ class App extends React.Component {
         if (this.state.userName) {
             return <HelloName name={this.state.userName}></HelloName>
         };
-        return <YourName onSubmit={
-            function (str_name) {
-                this.setState({ userName: str_name })
-            }.bind(this)
-        }></YourName >
+        return <YourName
+            onSubmit={
+                function (strName) {
+                    this.setState({ userName: strName })
+                }.bind(this)}>
+        </YourName >
     }
 
     render() {
         return (
             <main className="App">
                 {this.isRegistered()}
-                <WriteToDo></WriteToDo>
+                <WriteToDo onSubmit={function (strToDo) {
+                    const toDos = this.state.toDos;
+                    const newToDo = {
+                        id: toDos.length + 1,
+                        toDo: strToDo
+                    }
+                    const addNewToDo = toDos.concat(newToDo);
+                    this.setState({ toDos: addNewToDo })
+                }.bind(this)}></WriteToDo>
                 <ReadToDo data={this.state.toDos}></ReadToDo>
             </main>
         )
     }
 }
 
-//이름 입력할 form
-//input
-//todo입력할 form 
-//input
-//이름이 입력됐을 때 인사 문구 출력하는 영역
 //todo가 입력됐을 떄 todo 리스트 출력하는 영역(RUD 구현)
 
 
