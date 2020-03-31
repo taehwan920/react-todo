@@ -1,78 +1,82 @@
 import React from 'react';
-
+import HelloName from './components/HelloName';
+import YourName from './components/YourName';
 
 
 class WriteToDo extends React.Component {
-  render() {
-    return (
-      <center className="centerForWriting">
-        <form action="" className="WriteToDo">
-          <label>
-            What To Do!
-            <input
-              type="text"
-              placeholder="What are you going to do today?"
-            />
-          </label>
-        </form>
-      </center>
-    )
-  }
+    render() {
+        return (
+            <center className="centerForWriting">
+                <form action="" className="WriteToDo">
+                    <label>
+                        What To Do!
+                        <input type="text" placeholder="What are you going to do today?" />
+                    </label>
+                </form>
+            </center>
+        )
+    }
 }
 
-class HelloName extends React.Component {
-  render() {
-    return (
-      <header className="helloName">
-        Hello! {this.props.name}
-      </header>
-    )
-  }
-}
-
-class YourName extends React.Component {
-  render() {
-    return (
-      <header className="headerForName">
-        <form action="/" method="post" className="yourName" autoComplete="none"
-          onSubmit={function (e) {
-            e.preventDefault();
-            this.props.onSubmit(e.target.name.value);
-          }.bind(this)}>
-          <label>
-            Name!
-            <input type="text" placeholder="Your Name?" name="name" />
-          </label>
-        </form>
-      </header >
-    )
-  }
+class ReadToDo extends React.Component {
+    render() {
+        console.log('ReadToDo render')
+        const arrData = this.props.data
+        let toDoList = [];
+        arrData.map(item =>
+            toDoList.push(
+                <li className="toDo" data-id={item.id}>
+                    {item.toDo}
+                    <span role="img" aria-label="writing hand" className="toDo_btn">✍</span>
+                    <span role="img" aria-label="cross mark" className="toDo_btn">❌</span>
+                </li>
+            )
+        );
+        return (
+            <article className="toDoList" >
+                <ul>
+                    {toDoList}
+                </ul>
+            </article>
+        )
+    }
 }
 
 class App extends React.Component {
-  state = {
-    userName: ""
-  }
+    state = {
+        userName: null,
+        toDos: [
+            {
+                id: 1,
+                toDo: 'Complete this project'
+            },
+            {
+                id: 2,
+                toDo: 'Complete Read functions'
+            }
+        ]
+    }
 
-  isRegistered() {
-    if (this.state.userName) {
-      return <HelloName name={this.state.userName}></HelloName>
-    };
-    return <YourName onSubmit={
-      function (str_name) {
-        this.setState({ userName: str_name })
-      }.bind(this)
-    }></YourName >
-  }
+    isRegistered() {
+        if (this.state.userName) {
+            return <HelloName name={this.state.userName}></HelloName>
+        };
+        return <YourName onSubmit={
+            function (str_name) {
+                this.setState({ userName: str_name })
+            }.bind(this)
+        }></YourName >
+    }
 
-  render() {
-    return (
-      <main className="App">
-        {this.isRegistered()}
-        <WriteToDo></WriteToDo>
-      </main>
-    )
-  }
+    render() {
+        return (
+            <main className="App">
+                {this.isRegistered()}
+                <WriteToDo></WriteToDo>
+                <ReadToDo data={this.state.toDos}></ReadToDo>
+            </main>
+        )
+    }
 }
 
 //이름 입력할 form
