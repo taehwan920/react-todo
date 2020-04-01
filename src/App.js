@@ -2,7 +2,7 @@ import React from 'react';
 import HelloName from './components/HelloName';
 import YourName from './components/YourName';
 import WriteToDo from './components/WriteToDo';
-import ControlTodo from './components/ReadToDo';
+import ControlTodo from './components/ControlToDo';
 
 
 class App extends React.Component {
@@ -54,11 +54,12 @@ class App extends React.Component {
                     deleteToDo={
                         function (_id) {
                             const getToDo = toDos.findIndex(item => item.id === _id);
-                            const tempToDos = Array.from(toDos)
+                            const tempToDos = Array.from(toDos);
                             tempToDos.splice(getToDo, 1);
                             this.setState({ toDos: tempToDos });
                         }.bind(this)
-                    }></ControlTodo>
+                    }
+                ></ControlTodo>
             </main>
         )
     }
