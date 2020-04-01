@@ -12,6 +12,15 @@ class App extends React.Component {
     }
 
     componentDidMount = () => {
+        const getName = localStorage.getItem('NAME')
+        if (getName !== null) {
+            const parsedName = JSON.parse(getName);
+            this.setState({
+                userName: parsedName
+            })
+        } else {
+            console.log('이름이 없음!')
+        }
         const getToDos = localStorage.getItem('TODOS')
         if (getToDos !== null) {
             const parsedToDos = JSON.parse(getToDos);

@@ -13,7 +13,10 @@ class YourName extends React.Component {
                 <form action="/" method="post" className="yourName" autoComplete="none"
                     onSubmit={function (e) {
                         e.preventDefault();
-                        this.props.onSubmit(e.target.name.value)
+                        const userName = JSON.stringify(e.target.name.value);
+                        localStorage.setItem('NAME', userName);
+                        const getUserName = JSON.parse(localStorage.getItem('NAME'));
+                        this.props.onSubmit(getUserName);
                     }.bind(this)}>
                     <label>
                         Name?
