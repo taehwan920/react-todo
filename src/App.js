@@ -58,18 +58,10 @@ class App extends React.Component {
                     }.bind(this)}></WriteToDo>
                 <ControlTodo
                     toDos={toDos}
-                    deleteToDo={
+                    changeToDo={
                         function (newToDos) {
                             this.setState({ toDos: newToDos });
                         }.bind(this)}
-                    updateToDo={
-                        function (_id, strToDo) {
-                            const getToDoIdx = toDos.findIndex(item => item.id === _id);
-                            const tempToDos = Array.from(toDos)
-                            tempToDos[getToDoIdx].toDo = strToDo;
-                            this.setState({ toDos: tempToDos })
-                        }.bind(this)
-                    }
                 ></ControlTodo>
             </main>
         )

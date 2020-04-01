@@ -19,7 +19,22 @@ class ControlToDo extends React.Component {
         localStorage.setItem('TODOS', parsedToDos)
 
         const getToDos = JSON.parse(localStorage.getItem('TODOS'));
-        this.props.deleteToDo(getToDos);
+        this.props.changeToDo(getToDos);
+    }
+
+    updateToDo = (e) => {
+        const _id = parseInt(e.target.parentElement.dataset.id);
+        const _content = e.target.updateToDo.value;
+        const tempToDos = Array.from(this.props.toDos);
+        const getToDoIdx = tempToDos.findIndex(item => item.id === _id);
+
+        this.toggleInput(_id);
+        tempToDos[getToDoIdx].toDo = _content;
+        const parsedToDos = JSON.stringify(tempToDos);
+        localStorage.setItem('TODOS', parsedToDos)
+
+        const getToDos = JSON.parse(localStorage.getItem('TODOS'));
+        this.props.changeToDo(getToDos);
     }
 
     render() {
@@ -45,9 +60,7 @@ class ControlToDo extends React.Component {
                         <form className="updateBox" data-id={item.id} action="/" method="post"
                             onSubmit={function (e) {
                                 e.preventDefault();
-                                this.onSubmit(e);
-                                this.toggleInput(parseInt(e.target.parentElement.dataset.id));
-                                this.props.updateToDo(parseInt(e.target.parentElement.dataset.id), e.target.updateToDo.value);
+                                this.updateToDo(e);
                             }.bind(this)}>
                             <input name="updateToDo" type="text" placeholder="wanna change?"></input>
                         </form>
