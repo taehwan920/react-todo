@@ -9,8 +9,21 @@ class ControlToDo extends React.Component {
         getInput[inputIdx].classList.toggle('actBox');
     };
 
+    deleteToDo = (e) => {
+        const _id = parseInt(e.target.parentElement.parentElement.dataset.id);
+        const tempToDos = Array.from(this.props.toDos);
+        const getToDoIdx = tempToDos.findIndex(item => item.id === _id);
+
+        tempToDos.splice(tempToDos[getToDoIdx], 1);
+        const parsedToDos = JSON.stringify(tempToDos);
+        localStorage.setItem('TODOS', parsedToDos)
+
+        const getToDos = JSON.parse(localStorage.getItem('TODOS'));
+        this.props.deleteToDo(getToDos);
+    }
+
     render() {
-        const arrToDos = this.props.arrData;
+        const arrToDos = this.props.toDos;
         const toDoList = [];
         if (arrToDos !== null) {
             arrToDos.map(item =>
@@ -25,13 +38,14 @@ class ControlToDo extends React.Component {
                             >✍</span>
                             <span className="btn del-btn" role="img" aria-label="cross mark"
                                 onClick={function (e) {
-                                    this.props.deleteToDo(parseInt(e.target.parentElement.parentElement.dataset.id));
+                                    this.deleteToDo(e);
                                 }.bind(this)}
                             >❌</span>
                         </li>
                         <form className="updateBox" data-id={item.id} action="/" method="post"
                             onSubmit={function (e) {
                                 e.preventDefault();
+                                this.onSubmit(e);
                                 this.toggleInput(parseInt(e.target.parentElement.dataset.id));
                                 this.props.updateToDo(parseInt(e.target.parentElement.dataset.id), e.target.updateToDo.value);
                             }.bind(this)}>

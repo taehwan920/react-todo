@@ -22,7 +22,7 @@ class YourName extends React.Component {
                     onSubmit={function (e) {
                         e.preventDefault();
                         this.onSubmit(e);
-                    }}>
+                    }.bind(this)}>
                     <label>
                         Name?
               <input name="name" type="text" placeholder="Your Name?" />
