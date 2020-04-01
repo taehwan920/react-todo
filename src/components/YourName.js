@@ -7,17 +7,22 @@ class YourName extends React.Component {
         }
         return true;
     }
+
+    onSubmit(e) {
+        const userName = JSON.stringify(e.target.name.value);
+        localStorage.setItem('NAME', userName);
+        const getUserName = JSON.parse(localStorage.getItem('NAME'));
+        this.props.onSubmit(getUserName);
+    }
+
     render() {
         return (
             <header className="headerForName">
                 <form action="/" method="post" className="yourName" autoComplete="none"
                     onSubmit={function (e) {
                         e.preventDefault();
-                        const userName = JSON.stringify(e.target.name.value);
-                        localStorage.setItem('NAME', userName);
-                        const getUserName = JSON.parse(localStorage.getItem('NAME'));
-                        this.props.onSubmit(getUserName);
-                    }.bind(this)}>
+                        this.onSubmit(e);
+                    }}>
                     <label>
                         Name?
               <input name="name" type="text" placeholder="Your Name?" />

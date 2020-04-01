@@ -32,16 +32,24 @@ class App extends React.Component {
         }
     }
 
+    isToDosChanged() {
+        const getNewToDos = localStorage.getItem('TODOS');
+        this.props.onSubmit(getNewToDos);
+    }
+
     isRegistered() {
         if (this.state.userName) {
             return <HelloName name={this.state.userName}></HelloName>
         };
-        return <YourName
-            onSubmit={
-                function (strName) {
-                    this.setState({ userName: strName })
-                }.bind(this)}>
-        </YourName >
+        return (
+            <YourName
+                onSubmit={
+                    function (strName) {
+                        this.setState({ userName: strName })
+                    }.bind(this)}>
+            </YourName >
+        )
+
     }
 
     render() {
@@ -49,14 +57,12 @@ class App extends React.Component {
         return (
             <main className="App">
                 {this.isRegistered()}
-                <WriteToDo onSubmit={function (strToDo) {
-                    const newToDo = {
-                        id: toDos.length + 1,
-                        toDo: strToDo
-                    }
-                    const addNewToDo = toDos.concat(newToDo);
-                    this.setState({ toDos: addNewToDo })
-                }.bind(this)}></WriteToDo>
+                <WriteToDo
+                    toDos={toDos}
+                    isToDosChanged={this.isToDosChanged}
+                    onSubmit={function (newToDo) {
+                        this.setState({ toDos: newToDo })
+                    }.bind(this)}></WriteToDo>
                 <ControlTodo
                     data={toDos}
                     updateToDo={
