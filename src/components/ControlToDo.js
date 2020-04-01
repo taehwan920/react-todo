@@ -40,36 +40,54 @@ class ControlToDo extends React.Component {
     render() {
         const arrToDos = this.props.toDos;
         const toDoList = [];
-        if (arrToDos !== null) {
-            arrToDos.map(item =>
+        arrToDos
+            ? arrToDos.map(item =>
                 toDoList.push(
-                    <div className="toDoBox" key={item.id} data-id={item.id}>
+                    <div
+                        className="toDoBox"
+                        key={item.id}
+                        data-id={item.id}>
                         <li className="toDo" >
                             {item.toDo}
-                            <span className="btn update-btn" role="img" aria-label="writing hand"
-                                onClick={function (e) {
-                                    this.toggleInput(parseInt(e.target.parentElement.parentElement.dataset.id));
-                                }.bind(this)}
+                            <span
+                                className="btn update-btn"
+                                role="img"
+                                aria-label="writing hand"
+                                onClick={
+                                    function (e) {
+                                        this.toggleInput(parseInt(e.target.parentElement.parentElement.dataset.id));
+                                    }.bind(this)}
                             >✍</span>
-                            <span className="btn del-btn" role="img" aria-label="cross mark"
-                                onClick={function (e) {
-                                    this.deleteToDo(e);
-                                }.bind(this)}
+                            <span
+                                className="btn del-btn"
+                                role="img"
+                                aria-label="cross mark"
+                                onClick={
+                                    function (e) {
+                                        this.deleteToDo(e);
+                                    }.bind(this)}
                             >❌</span>
                         </li>
-                        <form className="updateBox" data-id={item.id} action="/" method="post"
-                            onSubmit={function (e) {
-                                e.preventDefault();
-                                this.updateToDo(e);
-                            }.bind(this)}>
-                            <input name="updateToDo" type="text" placeholder="wanna change?"></input>
+                        <form
+                            action="/"
+                            method="post"
+                            autoComplete="none"
+                            className="updateBox"
+                            data-id={item.id}
+                            onSubmit={
+                                function (e) {
+                                    e.preventDefault();
+                                    this.updateToDo(e);
+                                }.bind(this)}>
+                            <input
+                                name="updateToDo"
+                                type="text"
+                                placeholder="wanna change?"></input>
                         </form>
                     </div >
                 )
-            );
-        } else {
-            console.log('toDoList is empty!');
-        };
+            )
+            : console.log('toDoList is empty!');
 
         return (
             <article className="toDoList" >

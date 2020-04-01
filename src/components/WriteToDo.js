@@ -21,14 +21,22 @@ class WriteToDo extends React.Component {
     render() {
         return (
             <center className="centerForWriting">
-                <form action="/" method="post" className="WriteToDo" autoComplete="none"
-                    onSubmit={function (e) {
-                        e.preventDefault();
-                        this.onSubmit(e);
-                    }.bind(this)}>
+                <form
+                    action="/"
+                    method="post"
+                    autoComplete="none"
+                    className="WriteToDo"
+                    onSubmit={
+                        function (e) {
+                            e.preventDefault();
+                            this.onSubmit(e);
+                        }.bind(this)}>
                     <label>
                         What To Do?
-                        <input name="WriteToDo" type="text" placeholder="What are you going to do today?" />
+                        <input
+                            name="WriteToDo"
+                            type="text"
+                            placeholder="What are you going to do today?" />
                     </label>
                 </form>
             </center>

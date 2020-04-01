@@ -12,38 +12,31 @@ class App extends React.Component {
     }
 
     componentDidMount = () => {
-        const getName = localStorage.getItem('NAME')
-        if (getName !== null) {
-            const parsedName = JSON.parse(getName);
-            this.setState({
-                userName: parsedName
-            })
-        } else {
-            console.log('이름이 없음!')
-        }
-        const getToDos = localStorage.getItem('TODOS')
-        if (getToDos !== null) {
-            const parsedToDos = JSON.parse(getToDos);
-            this.setState({
-                toDos: parsedToDos
-            })
-        } else {
-            console.log('텅 비었음!')
-        }
+        const getName = localStorage.getItem('NAME');
+        const parsedName = JSON.parse(getName);
+
+        getName
+            ? this.setState({ userName: parsedName })
+            : console.log('이름이 없음!')
+
+        const getToDos = localStorage.getItem('TODOS');
+        const parsedToDos = JSON.parse(getToDos);
+
+        getToDos
+            ? this.setState({ toDos: parsedToDos })
+            : console.log('텅 비었음!')
     }
 
     isRegistered() {
-        if (this.state.userName) {
-            return <HelloName name={this.state.userName}></HelloName>
-        };
         return (
-            <YourName
-                onSubmit={
-                    function (strName) {
-                        this.setState({ userName: strName })
-                    }.bind(this)}>
-            </YourName >
-        )
+            this.state.userName
+                ? <HelloName name={this.state.userName}></HelloName>
+                : <YourName
+                    onSubmit={
+                        function (strName) {
+                            this.setState({ userName: strName })
+                        }.bind(this)}>
+                </YourName >)
     }
 
     render() {
@@ -53,9 +46,10 @@ class App extends React.Component {
                 {this.isRegistered()}
                 <WriteToDo
                     toDos={toDos}
-                    onSubmit={function (newToDo) {
-                        this.setState({ toDos: newToDo })
-                    }.bind(this)}></WriteToDo>
+                    onSubmit={
+                        function (newToDo) {
+                            this.setState({ toDos: newToDo })
+                        }.bind(this)}></WriteToDo>
                 <ControlTodo
                     toDos={toDos}
                     changeToDo={
@@ -67,8 +61,5 @@ class App extends React.Component {
         )
     }
 }
-
-//todo가 입력됐을 떄 todo 리스트 출력하는 영역(RUD 구현)
-
 
 export default App;

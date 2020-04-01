@@ -2,10 +2,11 @@ import React from 'react';
 
 class HelloName extends React.Component {
     shouldComponentUpdate() {
-        if (this.props.name) {
-            return false;
-        }
-        return true;
+        return (
+            this.props.name
+                ? false
+                : true
+        )
     }
     render() {
         return (
