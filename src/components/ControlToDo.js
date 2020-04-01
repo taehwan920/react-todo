@@ -25,7 +25,6 @@ class ControlToDo extends React.Component {
                         {item.toDo}
                         <span className="btn update-btn" role="img" aria-label="writing hand"
                             onClick={function (e) {
-                                // console.log(e.target.parentElement.parentElement.dataset.id)
                                 this.toggleInput(parseInt(e.target.parentElement.parentElement.dataset.id));
                             }.bind(this)}
                         >✍</span>
@@ -35,12 +34,14 @@ class ControlToDo extends React.Component {
                             }.bind(this)}
                         >❌</span>
                     </div>
-                    <input className="updateBox" data-update={false} data-id={item.id} type="text" placeholder="wanna change?"
+                    <form className="updateBox" data-update={false} data-id={item.id} action="/" method="post"
                         onSubmit={function (e) {
-                            console.log(e.target.parentElement.parentElement.dataset.id)
-                            // this.props.getToDo(parseInt(e.target.parentElement.parentElement.dataset.id));
-                        }}
-                    ></input>
+                            e.preventDefault();
+                            this.toggleInput(parseInt(e.target.parentElement.dataset.id));
+                            this.props.updateToDo(parseInt(e.target.parentElement.dataset.id), e.target.updateToDo.value);
+                        }.bind(this)}>
+                        <input name="updateToDo" type="text" placeholder="wanna change?"></input>
+                    </form>
                 </li >
             )
         );
