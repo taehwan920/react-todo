@@ -14,7 +14,8 @@ class WriteToDo extends React.Component {
 
         e.target.WriteToDo.value = '';
 
-        this.props.isToDosChanged();
+        const getToDos = JSON.parse(localStorage.getItem('TODOS'));
+        this.props.onSubmit(getToDos);
     }
 
     render() {

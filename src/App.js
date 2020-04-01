@@ -32,11 +32,6 @@ class App extends React.Component {
         }
     }
 
-    isToDosChanged() {
-        const getNewToDos = localStorage.getItem('TODOS');
-        this.props.onSubmit(getNewToDos);
-    }
-
     isRegistered() {
         if (this.state.userName) {
             return <HelloName name={this.state.userName}></HelloName>
@@ -49,7 +44,6 @@ class App extends React.Component {
                     }.bind(this)}>
             </YourName >
         )
-
     }
 
     render() {
@@ -59,12 +53,11 @@ class App extends React.Component {
                 {this.isRegistered()}
                 <WriteToDo
                     toDos={toDos}
-                    isToDosChanged={this.isToDosChanged}
                     onSubmit={function (newToDo) {
                         this.setState({ toDos: newToDo })
                     }.bind(this)}></WriteToDo>
                 <ControlTodo
-                    data={toDos}
+                    arrData={toDos}
                     updateToDo={
                         function (_id, strToDo) {
                             const getToDoIdx = toDos.findIndex(item => item.id === _id);

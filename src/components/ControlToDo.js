@@ -10,10 +10,9 @@ class ControlToDo extends React.Component {
     };
 
     render() {
-        const arrToDos = this.props.data
+        const arrToDos = this.props.arrData;
         const toDoList = [];
-
-        if (arrToDos !== null || arrToDos.length !== 0) {
+        if (arrToDos !== null) {
             arrToDos.map(item =>
                 toDoList.push(
                     <div className="toDoBox" key={item.id} data-id={item.id}>
