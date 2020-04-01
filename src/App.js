@@ -8,20 +8,19 @@ import ControlTodo from './components/ControlToDo';
 class App extends React.Component {
     state = {
         userName: null,
-        toDos: [
-            {
-                id: 1,
-                toDo: 'Complete this project'
-            },
-            {
-                id: 2,
-                toDo: 'Complete Update functions'
-            },
-            {
-                id: 3,
-                toDo: 'lalalal'
-            }
-        ]
+        toDos: []
+    }
+
+    componentDidMount = () => {
+        const getToDos = localStorage.getItem('TODOS')
+        if (getToDos !== null) {
+            const parsedToDos = JSON.parse(getToDos);
+            this.setState({
+                toDos: parsedToDos
+            })
+        } else {
+            console.log('텅 비었음!')
+        }
     }
 
     isRegistered() {

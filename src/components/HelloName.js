@@ -1,7 +1,7 @@
 import React from 'react';
 
 class HelloName extends React.Component {
-    shouldComponentUpdate(newProps, __) {
+    shouldComponentUpdate() {
         if (this.props.name) {
             return false;
         }
