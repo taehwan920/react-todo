@@ -9,10 +9,7 @@ class NamePart extends React.Component {
                 {this.props.userName
                     ? <HelloName name={this.props.userName}></HelloName>
                     : <YourName
-                        onSubmit={
-                            function (strName) {
-                                this.setState({ userName: strName })
-                            }.bind(this)}>
+                        onSubmit={this.props.onSubmit}>
                     </YourName >}
             </header>
         )

@@ -30,7 +30,14 @@ class App extends React.Component {
         const toDos = this.state.toDos;
         return (
             <main className="App">
-                <NamePart userName={this.state.userName}></NamePart>
+                <NamePart
+                    userName={this.state.userName}
+                    onSubmit={
+                        function (strName) {
+                            this.setState({ userName: strName })
+                        }.bind(this)
+                    }
+                ></NamePart>
                 <WriteToDo
                     toDos={toDos}
                     onSubmit={

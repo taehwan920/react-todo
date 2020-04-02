@@ -1,12 +1,20 @@
 .App{
-    width: 50vw;
-    height: 75vh;
+    width: 100vw;
+    height: 80vh;
     
     display:flex;
     flex-flow: column;
     justify-content: center;
     align-items: center;
 
-
-    background: navy;
+    background: white;
 }
+
+* > input:focus, * > button:focus{
+    outline: none;
+}
+
+* > button{
+    cursor: pointer;
+}
+

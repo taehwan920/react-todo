@@ -17,6 +17,9 @@ class ControlToDo extends React.Component {
             ? arrToDos.map(item =>
                 toDoList.push(
                     <ToDoBox
+                        changeToDo={this.props.changeToDo}
+                        toDos={this.props.toDos}
+                        toggleInput={this.toggleInput}
                         item={item}
                     ></ToDoBox>
                 )

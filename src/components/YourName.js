@@ -17,28 +17,35 @@ class YourName extends React.Component {
         this.props.onSubmit(getUserName);
     }
 
+    // focused(e) {
+    //     const getParent = e.target.parentNode;
+    //     getParent.classList.toggle('focusedDiv')
+    // }
+
     render() {
         return (
             <form
                 action="/"
                 method="post"
-                className="yourName"
                 autoComplete="none"
+                className="yourName"
                 onSubmit={
                     function (e) {
                         e.preventDefault();
                         this.onSubmit(e);
                     }.bind(this)}>
-                <label>
-                    name?
-                        <input
-                        name="name"
-                        type="text"
-                        placeholder="Your Name?" />
-                </label>
+                <input
+                    name="name"
+                    type="text"
+                    autoComplete="off"
+                    placeholder="name?"
+                    className="nameInput"
+                />
+                <button
+                    className="nameBtn"
+                    type="submit">✔</button>
             </form>
         )
     }
 };
-
 export default YourName;

@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@500&display=swap');
 @import "./reset.css";
 @import "./App.css";
 @import "./NamePart.css";
@@ -8,9 +9,11 @@
 html, body{
     box-sizing: border-box;
     background: magenta;
-    font-family: 'helvetica neue';
-    font-size: 20px;
-    font-weight: 200;
+    
+}
+
+* {
+    font-family: 'Rubik', sans-serif;
 }
 
 body{

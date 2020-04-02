@@ -11,7 +11,7 @@ class HelloName extends React.Component {
     render() {
         return (
             <div className="helloName">
-                Hello! {this.props.name}
+                hello, {this.props.name}!
             </div>
         )
     }

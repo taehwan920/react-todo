@@ -1,5 +1,13 @@
+@import "./HelloName.css";
+@import "./YourName.css";
+
 .headerForName{
     width: 100%;
-    background-color: olive;
+    
     flex:0.5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: rgba(0, 0, 0, 0.4);
 }

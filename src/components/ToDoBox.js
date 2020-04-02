@@ -14,7 +14,7 @@ export default class extends React.Component {
                 data-id={item.id}>
                 <li className="toDo" >
                     {item.toDo}
-                    <UpdateBtn onClick={this.toggleInput}></UpdateBtn>
+                    <UpdateBtn onClick={this.props.toggleInput}></UpdateBtn>
                     <DeleteToDo
                         toDos={this.props.toDos}
                         onClick={this.props.changeToDo}></DeleteToDo>
@@ -23,7 +23,7 @@ export default class extends React.Component {
                     toDos={this.props.toDos}
                     toDoItem={item}
                     onSubmit={this.props.changeToDo}
-                    toggleInput={this.toggleInput}
+                    toggleInput={this.props.toggleInput}
                 ></UpdateInput>
             </div >
         )
