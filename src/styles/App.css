@@ -18,3 +18,15 @@
     cursor: pointer;
 }
 
+.submitBtn {
+    width: 50px;
+    height: 40px;
+    border: none;
+    border-radius: 20px;
+    margin-left:15px;
+    color: white;
+    font-size: 18px;
+    line-height: 30px;
+    opacity: 1;
+    background: rgba(0,0,0,0.3);
+}

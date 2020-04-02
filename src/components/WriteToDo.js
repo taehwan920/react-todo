@@ -5,14 +5,14 @@ class WriteToDo extends React.Component {
         const toDos = this.props.toDos;
         const newToDo = {
             id: toDos.length + 1,
-            toDo: e.target.WriteToDo.value
+            toDo: e.target.writeToDo.value
         }
         const tempToDos = Array.from(toDos);
         tempToDos.push(newToDo);
         const parsedToDos = JSON.stringify(tempToDos);
         localStorage.setItem('TODOS', parsedToDos);
 
-        e.target.WriteToDo.value = '';
+        e.target.writeToDo.value = '';
 
         const getToDos = JSON.parse(localStorage.getItem('TODOS'));
         this.props.onSubmit(getToDos);
@@ -25,19 +25,23 @@ class WriteToDo extends React.Component {
                     action="/"
                     method="post"
                     autoComplete="none"
-                    className="WriteToDo"
+                    className="writeToDo"
                     onSubmit={
                         function (e) {
                             e.preventDefault();
                             this.onSubmit(e);
                         }.bind(this)}>
-                    <label>
-                        What To Do?
-                        <input
-                            name="WriteToDo"
-                            type="text"
-                            placeholder="What are you going to do today?" />
-                    </label>
+                    <input
+                        className="writeInput"
+                        name="writeToDo"
+                        type="text"
+                        autoComplete="off"
+                        placeholder="to do?"
+                    />
+                    <button
+                        className="submitBtn"
+                        type="submit"
+                    >✔</button>
                 </form>
             </center>
         )

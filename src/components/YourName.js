@@ -17,11 +17,6 @@ class YourName extends React.Component {
         this.props.onSubmit(getUserName);
     }
 
-    // focused(e) {
-    //     const getParent = e.target.parentNode;
-    //     getParent.classList.toggle('focusedDiv')
-    // }
-
     render() {
         return (
             <form
@@ -42,7 +37,7 @@ class YourName extends React.Component {
                     className="nameInput"
                 />
                 <button
-                    className="nameBtn"
+                    className="submitBtn"
                     type="submit">✔</button>
             </form>
         )
