@@ -10,9 +10,9 @@ class HelloName extends React.Component {
     }
     render() {
         return (
-            <header className="helloName">
+            <div className="helloName">
                 Hello! {this.props.name}
-            </header>
+            </div>
         )
     }
 };

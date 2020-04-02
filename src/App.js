@@ -1,8 +1,7 @@
 import React from 'react';
-import HelloName from './components/HelloName';
-import YourName from './components/YourName';
-import WriteToDo from './components/WriteToDo';
 import ControlTodo from './components/ControlToDo';
+import WriteToDo from './components/WriteToDo';
+import NamePart from './components/NamePart';
 
 
 class App extends React.Component {
@@ -27,23 +26,13 @@ class App extends React.Component {
             : console.log('텅 비었음!')
     }
 
-    isRegistered() {
-        return (
-            this.state.userName
-                ? <HelloName name={this.state.userName}></HelloName>
-                : <YourName
-                    onSubmit={
-                        function (strName) {
-                            this.setState({ userName: strName })
-                        }.bind(this)}>
-                </YourName >)
-    }
+
 
     render() {
         const toDos = this.state.toDos;
         return (
             <main className="App">
-                {this.isRegistered()}
+                <NamePart userName={this.state.userName}></NamePart>
                 <WriteToDo
                     toDos={toDos}
                     onSubmit={

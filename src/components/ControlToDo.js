@@ -14,7 +14,7 @@ class ControlToDo extends React.Component {
         const tempToDos = Array.from(this.props.toDos);
         const getToDoIdx = tempToDos.findIndex(item => item.id === _id);
 
-        tempToDos.splice(tempToDos[getToDoIdx], 1);
+        tempToDos.splice(getToDoIdx, 1);
         const parsedToDos = JSON.stringify(tempToDos);
         localStorage.setItem('TODOS', parsedToDos)
 

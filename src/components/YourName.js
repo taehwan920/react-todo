@@ -19,26 +19,24 @@ class YourName extends React.Component {
 
     render() {
         return (
-            <header className="headerForName">
-                <form
-                    action="/"
-                    method="post"
-                    className="yourName"
-                    autoComplete="none"
-                    onSubmit={
-                        function (e) {
-                            e.preventDefault();
-                            this.onSubmit(e);
-                        }.bind(this)}>
-                    <label>
-                        Name?
+            <form
+                action="/"
+                method="post"
+                className="yourName"
+                autoComplete="none"
+                onSubmit={
+                    function (e) {
+                        e.preventDefault();
+                        this.onSubmit(e);
+                    }.bind(this)}>
+                <label>
+                    name?
                         <input
-                            name="name"
-                            type="text"
-                            placeholder="Your Name?" />
-                    </label>
-                </form>
-            </header >
+                        name="name"
+                        type="text"
+                        placeholder="Your Name?" />
+                </label>
+            </form>
         )
     }
 };

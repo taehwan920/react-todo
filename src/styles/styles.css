@@ -1,11 +1,31 @@
 @import "./reset.css";
+@import "./App.css";
+@import "./YourName.css";
+@import "./HelloName.css";
+@import "./WriteToDo.css";
+@import "./ControlToDo.css";
 
-html{
+
+html, body{
     box-sizing: border-box;
-    background: peru;
+    background: magenta;
     font-family: 'helvetica neue';
     font-size: 20px;
     font-weight: 200;
+}
+
+body{
+    background: cyan;
+}
+
+
+#root{
+    width: 100vw;
+    height: 100vh;
+    background: green;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 * *::before *::after{

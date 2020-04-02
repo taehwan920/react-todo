@@ -1,0 +1,12 @@
+.App{
+    width: 50vw;
+    height: 75vh;
+    
+    display:flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+
+
+    background: navy;
+}

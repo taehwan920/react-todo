@@ -1,0 +1,5 @@
+.helloName{
+    width: 100%;
+    background: orange;
+    flex:0.5;
+}
