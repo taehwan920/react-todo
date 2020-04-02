@@ -31,6 +31,7 @@ export default class extends React.Component {
                     }.bind(this)}>
                 <input
                     name="updateToDo"
+                    className="updateInput"
                     type="text"
                     placeholder="wanna change?"></input>
             </form>

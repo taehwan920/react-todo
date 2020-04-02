@@ -8,12 +8,6 @@
     font-size: 24px;
     text-align: center;
     line-height: 36px;
+    cursor: pointer;
 }
 
-.updateBox{
-    display: none;
-}
-
-.actBox{
-    display: inline;
-}

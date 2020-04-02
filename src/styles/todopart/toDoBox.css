@@ -1,5 +1,6 @@
 @import "./updateBtn.css";
 @import "./deleteBtn.css";
+@import "./updateInput.css";
 
 .toDoBox{
     width:100%;
