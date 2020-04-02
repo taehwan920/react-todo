@@ -26,8 +26,6 @@ class App extends React.Component {
             : console.log('텅 비었음!')
     }
 
-
-
     render() {
         const toDos = this.state.toDos;
         return (
