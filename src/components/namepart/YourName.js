@@ -1,6 +1,6 @@
 import React from "react";
 
-class YourName extends React.Component {
+export default class extends React.Component {
     shouldComponentUpdate() {
         return (
             this.props.name
@@ -43,4 +43,3 @@ class YourName extends React.Component {
         )
     }
 };
-export default YourName;

@@ -1,6 +1,6 @@
 import React from 'react';
 
-class UpdateBtn extends React.Component {
+export default class extends React.Component {
     render() {
         return (
             <span
@@ -9,12 +9,10 @@ class UpdateBtn extends React.Component {
                 aria-label="writing hand"
                 onClick={
                     function (e) {
-                        const _id = parseInt(e.target.parentElement.parentElement.dataset.id)
-                        this.props.onClick(_id);
+                        const _id = parseInt(e.target.parentElement.parentElement.parentElement.dataset.id)
+                        this.props.toggleInput(_id);
                     }.bind(this)}
             >✍</span>
         )
     }
 };
-
-export default UpdateBtn;

@@ -1,21 +1,13 @@
-.centerForWriting{
+.yourName{
     width: 100%;
-    background: powderblue;
-    flex: 0.5;
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.writeToDo{
-    flex:1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.writeInput{
-    width: 30%;
+.nameInput{
+    width: 20%;
     height: 35px;
     padding-left: 15px;
     border: none;
@@ -26,11 +18,11 @@
     transition: all 0.85s ease-in-out;
 }
 
-.writeInput:focus{
+.nameInput:focus{
     width: 50%;
 }
 
-.writeInput::placeholder{
+.nameInput::placeholder{
     color: white;
     font-size: 24px;
     text-transform: capitalize;

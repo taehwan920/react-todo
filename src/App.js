@@ -1,7 +1,7 @@
 import React from 'react';
-import ControlTodo from './components/ControlToDo';
-import WriteToDo from './components/WriteToDo';
-import NamePart from './components/NamePart';
+import ControlTodo from './components/todopart/ControlToDo';
+import WriteToDo from './components/todopart/WriteToDo';
+import NamePart from './components/namepart/NamePart';
 
 
 class App extends React.Component {

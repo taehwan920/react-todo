@@ -14,10 +14,12 @@ export default class extends React.Component {
                 data-id={item.id}>
                 <li className="toDo" >
                     {item.toDo}
-                    <UpdateBtn onClick={this.props.toggleInput}></UpdateBtn>
-                    <DeleteToDo
-                        toDos={this.props.toDos}
-                        onClick={this.props.changeToDo}></DeleteToDo>
+                    <div className="btnBox">
+                        <UpdateBtn toggleInput={this.props.toggleInput}></UpdateBtn>
+                        <DeleteToDo
+                            toDos={this.props.toDos}
+                            onClick={this.props.changeToDo}></DeleteToDo>
+                    </div>
                 </li>
                 <UpdateInput
                     toDos={this.props.toDos}

@@ -1,8 +1,7 @@
 import React from 'react';
-import '../styles/test.css';
 import ToDoBox from './ToDoBox';
 
-class ControlToDo extends React.Component {
+export default class extends React.Component {
 
     toggleInput = (_id) => {
         const getInput = Array.from(document.querySelectorAll('.updateBox'))
@@ -28,10 +27,10 @@ class ControlToDo extends React.Component {
 
         return (
             <article className="toDoList" >
-                {toDoList}
+                <div className="toDoBoxContainer">
+                    {toDoList}
+                </div>
             </article>
         )
     }
 };
-
-export default ControlToDo;

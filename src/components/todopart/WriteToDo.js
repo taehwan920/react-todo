@@ -1,21 +1,26 @@
 import React from 'react';
 
-class WriteToDo extends React.Component {
+export default class extends React.Component {
     onSubmit(e) {
-        const toDos = this.props.toDos;
-        const newToDo = {
-            id: toDos.length + 1,
-            toDo: e.target.writeToDo.value
+        const wroteValue = e.target.writeToDo.value;
+        if (wroteValue) {
+            const toDos = this.props.toDos;
+            const newToDo = {
+                id: toDos.length + 1,
+                toDo: wroteValue
+            }
+            const tempToDos = Array.from(toDos);
+            tempToDos.push(newToDo);
+            const parsedToDos = JSON.stringify(tempToDos);
+            localStorage.setItem('TODOS', parsedToDos);
+
+            e.target.writeToDo.value = '';
+
+            const getToDos = JSON.parse(localStorage.getItem('TODOS'));
+            this.props.onSubmit(getToDos);
+        } else {
+            console.log('write something')
         }
-        const tempToDos = Array.from(toDos);
-        tempToDos.push(newToDo);
-        const parsedToDos = JSON.stringify(tempToDos);
-        localStorage.setItem('TODOS', parsedToDos);
-
-        e.target.writeToDo.value = '';
-
-        const getToDos = JSON.parse(localStorage.getItem('TODOS'));
-        this.props.onSubmit(getToDos);
     }
 
     render() {
@@ -47,5 +52,3 @@ class WriteToDo extends React.Component {
         )
     }
 };
-
-export default WriteToDo;

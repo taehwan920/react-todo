@@ -1,8 +1,8 @@
 import React from 'react';
 
-class DeleteToDo extends React.Component {
+export default class extends React.Component {
     deleteToDo = (e) => {
-        const _id = parseInt(e.target.parentElement.parentElement.dataset.id);
+        const _id = parseInt(e.target.parentElement.parentElement.parentElement.dataset.id);
         const tempToDos = Array.from(this.props.toDos);
         const getToDoIdx = tempToDos.findIndex(item => item.id === _id);
 
@@ -17,7 +17,7 @@ class DeleteToDo extends React.Component {
     render() {
         return (
             <span
-                className="btn del-btn"
+                className="del-btn"
                 role="img"
                 aria-label="cross mark"
                 onClick={
@@ -28,6 +28,3 @@ class DeleteToDo extends React.Component {
         )
     }
 };
-
-export default DeleteToDo;
-

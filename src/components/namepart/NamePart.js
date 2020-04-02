@@ -2,7 +2,7 @@ import React from 'react';
 import HelloName from './HelloName';
 import YourName from './YourName';
 
-class NamePart extends React.Component {
+export default class extends React.Component {
     render() {
         return (
             <header className="headerForName">
@@ -15,5 +15,3 @@ class NamePart extends React.Component {
         )
     }
 };
-
-export default NamePart;

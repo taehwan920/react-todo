@@ -1,0 +1,25 @@
+@import "./toDoBox.css";
+
+.toDoList{
+    width: 100%;
+    height: 60%;
+    background: salmon;
+    display: flex;
+    flex-flow: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.toDoBoxContainer{
+    height: 100%;
+    width: 60%;
+    background: blue;
+    overflow : scroll;
+    overflow-x : hidden;
+}
+
+@media (max-width: 1000px) {
+    .toDoBoxContainer{
+        width: 80%;
+    }
+}
