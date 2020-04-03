@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/react-todo/static/css/main.e5920e2c.chunk.css",
+    "main.css": "/react-todo/static/css/main.a9b06484.chunk.css",
     "main.js": "/react-todo/static/js/main.1be18852.chunk.js",
     "main.js.map": "/react-todo/static/js/main.1be18852.chunk.js.map",
     "runtime-main.js": "/react-todo/static/js/runtime-main.bb662e3c.js",
@@ -8,16 +8,16 @@
     "static/js/2.e71b42ce.chunk.js": "/react-todo/static/js/2.e71b42ce.chunk.js",
     "static/js/2.e71b42ce.chunk.js.map": "/react-todo/static/js/2.e71b42ce.chunk.js.map",
     "index.html": "/react-todo/index.html",
-    "precache-manifest.8d7ed9a9978c204897e327a6f1ca375f.js": "/react-todo/precache-manifest.8d7ed9a9978c204897e327a6f1ca375f.js",
+    "precache-manifest.5c4d410d5ced01a7e61bb2ff1c0d930f.js": "/react-todo/precache-manifest.5c4d410d5ced01a7e61bb2ff1c0d930f.js",
     "service-worker.js": "/react-todo/service-worker.js",
-    "static/css/main.e5920e2c.chunk.css.map": "/react-todo/static/css/main.e5920e2c.chunk.css.map",
+    "static/css/main.a9b06484.chunk.css.map": "/react-todo/static/css/main.a9b06484.chunk.css.map",
     "static/js/2.e71b42ce.chunk.js.LICENSE.txt": "/react-todo/static/js/2.e71b42ce.chunk.js.LICENSE.txt",
     "static/media/styles.css": "/react-todo/static/media/sheepphone.a701a2f7.jpg"
   },
   "entrypoints": [
     "static/js/runtime-main.bb662e3c.js",
     "static/js/2.e71b42ce.chunk.js",
-    "static/css/main.e5920e2c.chunk.css",
+    "static/css/main.a9b06484.chunk.css",
     "static/js/main.1be18852.chunk.js"
   ]
 }
