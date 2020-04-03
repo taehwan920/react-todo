@@ -9,18 +9,21 @@
     flex-flow:wrap;
     justify-content: center;
     align-items: flex-start;
-    background: silver;
-    border-bottom: 1px solid black;
+    background: inherit;
+}
+.toDoBox:first-child{
+    margin-top:30px;
 }
 
 .toDo{
     width:90%;
     list-style: none;
-    background: chocolate;
+    background: inherit;
     font-size: 26px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    z-index: 2;
 }
 
 .btnBox{
