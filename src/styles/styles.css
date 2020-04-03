@@ -7,8 +7,10 @@
 
 
 html, body{
+    width:100vw;
+    height: 100vh;
     box-sizing: border-box;
-    background: magenta;
+    background: none;
     
 }
 
@@ -18,19 +20,47 @@ html, body{
 
 body{
     min-height: 100%;
-    background: cyan;
+    
 }
 
 
 #root{
     width: 100vw;
     height: 100vh;
-    background: green;
+    background-image: url(../images/sheep1600.jpg);
+    background-repeat: no-repeat;
+    background-size: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
+@media (max-width: 1000px) {
+    #root{
+        background-image: url(../images/sheepphone.jpg);
+        background-repeat: no-repeat;
+        background-size: 100%;
+    }
+}
+
 * *::before *::after{
     box-sizing: inherit;
+}
+
+::-webkit-scrollbar-button{
+    background: none;
+}
+
+::-webkit-scrollbar-thumb{
+    background: rgba(0, 0, 0, 0.3);
+    border: none;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-track{
+    background: none;
+}
+
+::-webkit-scrollbar{
+    width: 8px;
 }

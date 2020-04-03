@@ -14,26 +14,9 @@
     height: 100%;
     width: 60%;
     background: none;
+    padding: 0px 10px;
     overflow : scroll;
     overflow-x : hidden;
-}
-
-::-webkit-scrollbar{
-    width: 8px;
-}
-
-::-webkit-scrollbar-button{
-    background: none;
-}
-
-::-webkit-scrollbar-thumb{
-    background: rgba(0, 0, 0, 0.7);
-    border: none;
-    border-radius: 10px;
-}
-
-::-webkit-scrollbar-track{
-    background: none;
 }
 
 @media (max-width: 1000px) {

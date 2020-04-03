@@ -7,7 +7,7 @@
     justify-content: center;
     align-items: center;
 
-    background: white;
+    background: none;
 }
 
 * > input:focus, * > button:focus{

@@ -34,6 +34,10 @@ export default class extends React.Component {
                     className="updateInput"
                     type="text"
                     placeholder="wanna change?"></input>
+                <button
+                    className="updateBtn"
+                    type="submit"
+                >✔</button>
             </form>
         )
     }

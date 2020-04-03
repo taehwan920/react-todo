@@ -1,8 +1,8 @@
 .del-btn{
     flex: 1;
     height: 100%;
-    background: blueviolet;
-    border-left: 0.5px solid white;
+    background: rgba(0,0,0,0.4);
+    border-left: 0.5px solid rgba(255,255,255,0.5);
     border-top-right-radius: 15px;
     border-bottom-right-radius: 15px;
     font-size: 24px;
