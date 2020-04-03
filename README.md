@@ -1,6 +1,6 @@
-#REACT-TODO LIST
+# REACT-TODO LIST
 
-##ReactJS로 구현한 toDo리스트 SPA입니다.
+## ReactJS로 구현한 toDo리스트 SPA입니다.
 
 ## 기능 구현
 
